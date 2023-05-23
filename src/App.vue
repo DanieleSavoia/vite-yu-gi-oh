@@ -16,19 +16,25 @@ export default {
         CharacterList,
         ResultsMessage,
     },
+    methods: {
+        requestDataFromApi(searchStr) { 
+            axios
+            .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0/?name=" + searchStr)
+            .then(response => (this.store.characterList = response.data.data));
+        }
+    },
     created () {
         // facciamo la richiesta qui api
-        axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php")
-        .then(response => (this.store.characterList = response.data.results));
-    }
+        this.requestDataFromApi();
+    },
 }
 </script>
 <template lang="">
     <h1>
         yu-gi-oh api
-    </h1>
+    </h1> 
     <main>
-        <AppSearch/>
+        <AppSearch @performSearch="requestDataFromApi"/>
         <CharacterList/>
         <ResultsMessage/>
     </main>

@@ -1,14 +1,14 @@
-
 <script>
+
 export default {
     
-}
+};
 </script>
 <template lang="">
     <div>
-        results message
+        found -- characters
     </div>
 </template>
 <style lang="scss" scoped>
-    
+
 </style>

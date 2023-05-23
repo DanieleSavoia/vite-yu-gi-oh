@@ -12,11 +12,28 @@ export default {
     }
 }
 </script>
-<template lang="">
-    <CharacterCard v-for="character in store.characterList" :key="character.id"/>
-    <CharacterCard/>
-    <CharacterCard/>
-</template>
-<style lang="">
+<template>
+    <div class="cards-container">
+        <CharacterCard v-for="character in store.characterList" :key="character.name"
+        class="card-character"
+        :characterData="character"
+        />   
+    </div>
     
+</template>
+<style lang="scss" scoped>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   
+}
+.card-character {
+    flex: 0 0 20%;
+}   
 </style>
